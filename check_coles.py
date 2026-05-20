@@ -40,7 +40,6 @@ def check_coles_price(page, product: dict) -> dict | None:
             tile.query_selector(".product__pricing") or
             tile.query_selector("[class*='product__pricing']")
         )
-        )
         if not price_el:
             print(f"[Coles] Could not find price element for: {name}", file=sys.stderr)
             return None
