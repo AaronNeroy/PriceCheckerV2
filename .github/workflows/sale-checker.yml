@@ -3,7 +3,7 @@ name: Supermarket Sale Checker
 on:
   schedule:
     # Runs every Monday at 8:00 AM AEST (Sunday 10:00 PM UTC)
-    - cron: "0 22 * * 0"
+    - cron: "0 22 * * 2"
   workflow_dispatch: # Allows manual runs from the GitHub Actions tab
 
 jobs:
