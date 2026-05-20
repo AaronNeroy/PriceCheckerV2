@@ -27,9 +27,7 @@ def check_coles_price(page, product: dict) -> dict | None:
         """)
         print(f"[Coles] DEBUG product-related classes on page: {all_classes[:20]}", file=sys.stderr)
 
-        tiles = page.query_selector_all("[data-testid='product-tile']")
-        if not tiles:
-            tiles = page.query_selector_all(".product-tile, .coles-targeting-ProductTile")
+        tiles = page.query_selector_all(".product__pricing_area")
 
         if not tiles:
             print(f"[Coles] No product tiles found for: {name}", file=sys.stderr)
@@ -39,9 +37,9 @@ def check_coles_price(page, product: dict) -> dict | None:
 
         # Get current price
         price_el = (
-            tile.query_selector("[data-testid='product-pricing'] .price__value") or
-            tile.query_selector(".price__value") or
-            tile.query_selector("[class*='price']")
+            tile.query_selector(".product__pricing") or
+            tile.query_selector("[class*='product__pricing']")
+        )
         )
         if not price_el:
             print(f"[Coles] Could not find price element for: {name}", file=sys.stderr)
