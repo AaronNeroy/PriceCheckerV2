@@ -1,10 +1,9 @@
 {
   "coles": [
-    { "name": "Cadbury Dairy Milk 180g", "id": "7654321", "normal_price": 5.50 },
-    { "name": "Milo 400g", "id": "1234567", "normal_price": 8.00 }
+    { "name": "Kellogg's Nutri-grain High Protein Crunch Choc Malt Flavour | 500g", "id": "8128201", "normal_price": 10.00 },
+    { "name": "McCain Pub Size Chicken & Bacon Bake", "id": "2944176", "normal_price": 99.50 }
   ],
   "woolworths": [
-    { "name": "Cadbury Dairy Milk 180g", "stockcode": "123456", "normal_price": 5.50 },
-    { "name": "Milo 400g", "stockcode": "654321", "normal_price": 8.00 }
+    { "name": "Kellogg's Nutri Grain High Protein Crunch Choc Malt Cereal 500g", "stockcode": "910382", "normal_price": 10.00 }
   ]
 }
