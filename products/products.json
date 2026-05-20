@@ -1,7 +1,7 @@
 {
   "coles": [
     { "name": "Kellogg's Nutri-grain High Protein Crunch Choc Malt Flavour | 500g", "id": "8128201", "normal_price": 10.00 },
-    { "name": "Pub size bake", "id": "2944176", "normal_price": 9.50 }
+    { "name": "McCain Pub Size Chicken & Bacon Bake | 480g", "id": "2944176", "normal_price": 9.50 }
   ],
   "woolworths": [
     { "name": "nutri grain high protein", "stockcode": "910382", "normal_price": 10.00 },
