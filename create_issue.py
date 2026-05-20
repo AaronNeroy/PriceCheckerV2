@@ -33,11 +33,11 @@ def build_issue_body(coles_sales: list, woolworths_sales: list) -> str:
 
     if woolworths_sales:
         lines.append("### 🟢 Woolworths\n")
-        lines.append("| Product | Normal Price | Sale Price | Link |")
+        lines.append("| Product | Normal Price | Sale Price | Savings |")
         lines.append("|---------|-------------|------------|---------|")
         for s in woolworths_sales:
             lines.append(
-                f"| [{s['name']}] | ${s['normal_price']:.2f} | ${s['sale_price']:.2f} | ({s['url']}) |"
+                f"| [{s['name']}]({s['url']}) | ${s['normal_price']:.2f} | ${s['sale_price']:.2f} | 💰 ${s['savings']:.2f} |"
             )
         lines.append("")
 
