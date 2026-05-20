@@ -28,7 +28,7 @@ jobs:
           playwright install-deps chromium
 
       - name: Check Coles prices
-        run: python check_coles.py
+        run: python check_coles.py 2>&1
 
       - name: Check Woolworths prices
         run: python check_woolworths.py
