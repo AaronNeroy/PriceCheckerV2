@@ -19,6 +19,7 @@ def check_coles_price(page, product: dict) -> dict | None:
         search_url = f"https://www.coles.com.au/search?q={quote_plus(name)}"
         page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
         time.sleep(2)  # Let JS render
+        page.screenshot(path=f"debug_{name[:20].replace(' ', '_')}.png")
 
         # Debug: print all class names found on page to identify correct selectors
         all_classes = page.evaluate("""
