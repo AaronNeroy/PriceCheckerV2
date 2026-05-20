@@ -27,7 +27,7 @@ def build_issue_body(coles_sales: list, woolworths_sales: list) -> str:
         lines.append("|-------------|-------------|------------|---------|")
         for s in coles_sales:
             lines.append(
-                f"| [{s['name']}] | ${s['normal_price']:.2f} | ${s['sale_price']:.2f} | ({s['url']}) |"
+                f"| [{s['name'][:15]}...] | ${s['normal_price']:.2f} | ${s['sale_price']:.2f} | ({s['url']}) |"
             )
         lines.append("")
 
