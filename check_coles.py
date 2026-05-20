@@ -15,7 +15,8 @@ def check_coles_price(page, product: dict) -> dict | None:
     normal_price = product["normal_price"]
 
     try:
-        search_url = f"https://www.coles.com.au/search?q={name.replace(' ', '+')}"
+        from urllib.parse import quote_plus
+        search_url = f"https://www.coles.com.au/search?q={quote_plus(name)}"
         page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
         time.sleep(2)  # Let JS render
 
@@ -44,9 +45,9 @@ def check_coles_price(page, product: dict) -> dict | None:
             print(f"[Coles] Could not find price element for: {name}", file=sys.stderr)
             return None
 
+        import re
         price_text = price_el.inner_text().replace("$", "").replace("\n", "").strip()
-        # Sometimes price renders as "5\n.50" or "$5.50"
-        price_text = price_text.split()[0]
+        price_text = re.search(r'[\d.]+', price_text).group()
         current_price = float(price_text)
 
         # Check for "was" price or special badge
