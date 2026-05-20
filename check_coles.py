@@ -18,9 +18,7 @@ def check_coles_price(page, product: dict) -> dict | None:
         from urllib.parse import quote_plus
         search_url = f"https://www.coles.com.au/search?q={quote_plus(name)}"
         page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
-        time.sleep(2)  # Let JS render
-        with open(f"debug_{name[:20].replace(' ', '_')}.html", "w") as f:
-            f.write(page.content())
+        time.sleep(5)  # Let JS render
 
         # Debug: print all class names found on page to identify correct selectors
         all_classes = page.evaluate("""
