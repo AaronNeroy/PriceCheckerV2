@@ -19,8 +19,14 @@ def check_coles_price(page, product: dict) -> dict | None:
         page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
         time.sleep(2)  # Let JS render
 
-        # Intercept the API response via network — Coles loads product data as JSON
-        # Try to grab price from the rendered product tile
+        # Debug: print all class names found on page to identify correct selectors
+        all_classes = page.evaluate("""
+            () => [...new Set([...document.querySelectorAll('*')]
+                .map(el => el.className)
+                .filter(c => typeof c === 'string' && c.includes('product')))]
+        """)
+        print(f"[Coles] DEBUG product-related classes on page: {all_classes[:20]}", file=sys.stderr)
+
         tiles = page.query_selector_all("[data-testid='product-tile']")
         if not tiles:
             tiles = page.query_selector_all(".product-tile, .coles-targeting-ProductTile")
