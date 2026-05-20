@@ -1,0 +1,10 @@
+{
+  "coles": [
+    { "name": "Cadbury Dairy Milk 180g", "id": "7654321", "normal_price": 5.50 },
+    { "name": "Milo 400g", "id": "1234567", "normal_price": 8.00 }
+  ],
+  "woolworths": [
+    { "name": "Cadbury Dairy Milk 180g", "stockcode": "123456", "normal_price": 5.50 },
+    { "name": "Milo 400g", "stockcode": "654321", "normal_price": 8.00 }
+  ]
+}
