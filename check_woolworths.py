@@ -19,6 +19,14 @@ def check_woolworths_price(page, product: dict) -> dict | None:
         search_url = f"https://www.woolworths.com.au/shop/search/products?searchTerm={name.replace(' ', '+')}"
         page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
         time.sleep(2)
+        all_classes = page.evaluate("""
+            () => [...new Set([...document.querySelectorAll('*')]
+                .map(el => el.className)
+                .filter(c => typeof c === 'string' && c.length > 0))]
+        """)
+        print(f"[Woolworths] DEBUG classes on page: {all_classes[:30]}", file=sys.stderr)
+        with open(f"debug_woolies_{name[:20].replace(' ', '_')}.html", "w") as f:
+            f.write(page.content())
 
         # Grab rendered product tiles
         tiles = page.query_selector_all("[data-testid='product-tile'], .shelfProductTile, product-tile")
